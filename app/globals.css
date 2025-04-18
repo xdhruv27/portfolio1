@@ -1,7 +1,5 @@
 @import "tailwindcss";
-@plugin "daisyui" {
-  themes: false;
-}
+/* DaisyUI configuration should be done in the Tailwind CSS configuration file, not here. */
 
 html {
     scroll-behavior: smooth;
@@ -19,4 +17,6 @@ html {
     background-color: #ffffff; 
     color: black;
   }
-  
+
+/* Removed JavaScript configuration code. Ensure it is placed in tailwind.config.js */
+
