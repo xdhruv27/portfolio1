@@ -7,10 +7,29 @@ import toast from 'react-hot-toast';
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setLoading(true);
-    toast.success('Message sent successfully!');
-    setTimeout(() => setLoading(false), 2000);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const res = await fetch("https://formsubmit.co/ajax/133d8bc61b6157db08b8359eb48bf732", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+      body: formData,
+    });
+
+    if (res.ok) {
+      toast.success('Message sent successfully!');
+      form.reset();
+    } else {
+      toast.error('Something went wrong. Please try again!');
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -25,14 +44,11 @@ export default function ContactPage() {
 
       <motion.form
         onSubmit={handleSubmit}
-        action="https://formsubmit.co/133d8bc61b6157db08b8359eb48bf732"
-        method="POST"
         className="w-full max-w-lg bg-base-200 shadow-xl rounded-2xl p-8 space-y-6"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        {/* Hidden inputs for FormSubmit options */}
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_template" value="table" />
         <input

@@ -11,18 +11,18 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "HackerNews Server",
+    title: "HackerNews DevOps",
     description:
-      "Backend project that replicates the HackerNews API using Hono, Supabase, and Prisma. Deployed on Azure using GitHub Actions.",
-    techStack: ["Hono", "TypeScript", "Supabase", "Prisma", "Azure"],
-    link: "https://github.com/Kethan3/hackernews-server",
+      "CI/CD pipeline for HackerNews using GitHub Actions and Azure Container Apps. Includes Docker setup, ACR, and environment-based deployment.",
+    techStack: ["Docker", "Azure", "GitHub Actions", "Hono", "CI/CD"],
+    link: "https://github.com/xdhruv27/hackernews-server",
   },
   {
-    title: "Decentralized Auction",
+    title: "Patient Condition Classification",
     description:
-      "A blockchain-based auction platform built with Solidity and React. Allows secure bidding and transparent smart contract logic on the Ethereum network.",
-    techStack: ["Solidity", "React", "JavaScript", "Truffle", "Blockchain"],
-    link: "https://github.com/Kethan3/decentralized-auction",
+      "A deep learning model using LSTM and BERT to classify patient health conditions from clinical text. Trained using Keras and evaluated on benchmark datasets.",
+    techStack: ["Python", "Keras", "TensorFlow", "LSTM", "BERT"],
+    link: "https://github.com/xdhruv27/Patient_Condition_Classification",
   },
 ];
 
